@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+# Init script for tether watchdog
+#/etc/init.d/tether-watchdog
+
+START=99
+
+start() {
+    logger -t tether "Starting tether watchdog"
+    /root/tether-watchdog.sh &
+}
+
+stop() {
+    logger -t tether "Stopping tether watchdog"
+    killall tether-watchdog.sh 2>/dev/null
+}
